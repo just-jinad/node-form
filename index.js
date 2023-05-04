@@ -31,7 +31,7 @@ app.get("/",(request,response)=>{
     console.log("request made")
     response.sendFile(__dirname+"/index.html")
     // response.send([{name:"jinad", club:"manchester united"}])
-})
+}) 
 
 app.get("/signUp",(request,response)=>{
     response.render("signUp",{message: ""})
@@ -59,6 +59,7 @@ app.post("/signUp", (request, response)=>{
 app.get("/signIn",(request,response)=>{
     response.render("signIn")
 })
+
 app.post("/signIn", (request,response)=>{
     userModel.find({email:request.body.email, password:request.body.password})
     .then((res)=>{
@@ -112,8 +113,8 @@ app.post("/update", (request,response)=>{
     })
 })
 
-app.get("/landingPage", (request,response)=>{
-response.render("landingPage")
+app.get("/index", (request,response)=>{
+response.render("index")
 })
 app.listen(4500,()=>{
     console.log("server has started")
